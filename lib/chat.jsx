@@ -71,14 +71,14 @@ export default function Chat() {
       //   socket_id: socketId,
       // }),
       body: JSON.stringify({
-        message: userMessage,
+        message: userMessage.trim(),
         socket_id: socketId,
       }),
     });
     //para mostrar los que yo escribo en mi chat popup
     setMessageLog((prev) => [
       ...prev,
-      { selfMessage: true, message: userMessage },
+      { selfMessage: true, message: userMessage.trim() },
     ]);
     //limpio el input luego de escribir con
     setUserMessage("");
